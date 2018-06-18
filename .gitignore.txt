@@ -1,0 +1,2 @@
+C:\Users\heidi\Reseptiarkisto\nbproject\private
+C:\Users\heidi\Reseptiarkisto\nbproject\dist

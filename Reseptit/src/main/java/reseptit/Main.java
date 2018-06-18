@@ -12,6 +12,11 @@ import spark.template.thymeleaf.ThymeleafTemplateEngine;
 public class Main {
     
      public static void main(String[] args) throws Exception {
+        // asetetaan portti jos heroku antaa PORT-ympäristömuuttujan
+        if (System.getenv("PORT") != null) {
+        Spark.port(Integer.valueOf(System.getenv("PORT")));
+        }
+         
         Database database = new Database("jdbc:sqlite:reseptiarkisto.db");      
         RaakaAineDao raakaAineDao = new RaakaAineDao(database);
         AnnosDao annosDao = new AnnosDao(database, raakaAineDao);
