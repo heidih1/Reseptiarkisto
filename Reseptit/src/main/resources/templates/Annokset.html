@@ -1,0 +1,60 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Annokset</title>
+</head>
+<body>
+
+    <h1 th:text ="${annos.nimi}"> Annoksen nimi </h1>
+    
+    <h2>Ainekset</h2>
+
+  <ul>
+      <li th:each ="raakaAine : ${raakaAineet}">
+          <span th:text ="${raakaAine.nimi}">Ainesosa</span>
+      </li>
+  </ul>
+
+
+  <h4>Lisää uusi</h4>
+  
+  <form method="POST" action="/annokset">
+      Jäätelöannoksen nimi:<br/>
+      <input type="text" name="aine"/><br/>
+      <input type="submit" value="Lisää"/>
+  </form>
+
+  <h4>Lisää ainesosia</h4>
+
+  <form method="POST" action="/annokset">
+      Jäätelöannoksen nimi:<br/>
+      <select name="jääteloannos">
+        <option name="3"></option>
+        <option name="2"></option>
+        <option name="1"></option>
+      </select>
+      <br/>
+      Lisättävä ainesosa<br/>
+      <select name="ainesosa">
+        <option name="1"></option>
+        <option name="2"></option>
+        <option name="3"></option>
+        <option name="...">...</option>
+      </select>
+      <br/>
+      Järjestys<br/>
+      <input type="text"/><br/>
+      Määrä<br/>
+      <input type="text"/><br/>
+      Ohje<br/>
+      <input type="text"/><br/>
+      <input type="submit" value="Lisää"/>
+  </form>
+
+  <ul>
+    <li>
+      <a href="../">Jäätelöannoksiin</a>
+    </li>
+  </ul>
+</body>
+</html>
